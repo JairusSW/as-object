@@ -1,6 +1,6 @@
 {
     "name": "@as-object/transform",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Object API implementation for AssemblyScript",
     "main": "./lib/index.js",
     "author": "Jairus Tanaka",
