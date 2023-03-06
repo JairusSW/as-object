@@ -1,0 +1,35 @@
+{
+  "name": "as-object",
+  "version": "0.1.0",
+  "description": "Object API implementation for AssemblyScript",
+  "types": "assembly/index.ts",
+  "author": "Jairus Tanaka",
+  "contributors": [],
+  "license": "MIT",
+  "scripts": {
+    "build:test": "asc assembly/test.ts --target test --runtime stub",
+    "build:transform": "tsc -p ./transform",
+    "test:wasmtime": "wasmtime ./build/test.wasm"
+  },
+  "devDependencies": {
+    "@assemblyscript/wasi-shim": "^0.1.0",
+    "assemblyscript": "^0.27.1",
+    "visitor-as": "^0.7.0-2"
+  },
+  "dependencies": {
+    "as-variant": "^0.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JairusSW/as-object.git"
+  },
+  "keywords": [
+    "assemblyscript",
+    "object"
+  ],
+  "bugs": {
+    "url": "https://github.com/JairusSW/as-object/issues"
+  },
+  "homepage": "https://github.com/JairusSW/as-object#readme",
+  "type": "module"
+}

@@ -1,0 +1,28 @@
+{
+    "name": "@as-object/transform",
+    "version": "0.1.0",
+    "description": "Object API implementation for AssemblyScript",
+    "main": "./lib/index.js",
+    "author": "Jairus Tanaka",
+    "contributors": [],
+    "license": "MIT",
+    "devDependencies": {
+        "assemblyscript": "^0.27.1",
+        "visitor-as": "^0.11.4"
+    },
+    "dependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JairusSW/as-object.git"
+    },
+    "keywords": [
+        "assemblyscript",
+        "object"
+    ],
+    "bugs": {
+        "url": "https://github.com/JairusSW/as-object/issues"
+    },
+    "homepage": "https://github.com/JairusSW/as-object#readme",
+    "type": "module",
+    "exports": "./lib/index.js"
+}
