@@ -35,14 +35,16 @@ class ObjectTransform extends BaseVisitor {
         }
 
         for (const mem of node.members) {
-            const member = <FieldDeclaration>mem;
-            if (toString(member).startsWith("static")) return;
-            const lineText = toString(member);
-            if (lineText.startsWith("private")) return;
+            if (mem instanceof FieldDeclaration) {
+                const member = <FieldDeclaration>mem;
+                if (toString(member).startsWith("static")) return;
+                const lineText = toString(member);
+                if (lineText.startsWith("private")) return;
 
-            this.currentClass.keys.push(member.name.text);
-            // @ts-ignore
-            this.currentClass.types.push(member.type.name.identifier.text);
+                this.currentClass.keys.push(member.name.text);
+                // @ts-ignore
+                this.currentClass.types.push(member.type.name.identifier.text);
+            }
         }
 
         //console.log(`public __Object_Keys: string[] = [${this.currentClass.keys.map(v => `"${v}"`).join(",")}];`)
