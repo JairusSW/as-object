@@ -1,3 +1,4 @@
+import { FieldDeclaration } from "assemblyscript/dist/assemblyscript.js";
 import { toString, isStdlib } from "visitor-as/dist/utils.js";
 import { BaseVisitor, SimpleParser } from "visitor-as/dist/index.js";
 import { Transform } from "assemblyscript/dist/transform.js";
@@ -30,15 +31,17 @@ class ObjectTransform extends BaseVisitor {
             types: []
         };
         for (const mem of node.members) {
-            const member = mem;
-            if (toString(member).startsWith("static"))
-                return;
-            const lineText = toString(member);
-            if (lineText.startsWith("private"))
-                return;
-            this.currentClass.keys.push(member.name.text);
-            // @ts-ignore
-            this.currentClass.types.push(member.type.name.identifier.text);
+            if (mem instanceof FieldDeclaration) {
+                const member = mem;
+                if (toString(member).startsWith("static "))
+                    return;
+                const lineText = toString(member);
+                if (lineText.startsWith("private "))
+                    return;
+                this.currentClass.keys.push(member.name.text);
+                // @ts-ignore
+                this.currentClass.types.push(member.type.name.identifier.text);
+            }
         }
         //console.log(`public __OBJECT_KEYS: string[] = [${this.currentClass.keys.map(v => `"${v}"`).join(",")}];`)
         const keysProp = SimpleParser.parseClassMember(`public __OBJECT_KEYS: string[] = [${this.currentClass.keys.map(v => `"${v}"`).join(",")}];`, node);

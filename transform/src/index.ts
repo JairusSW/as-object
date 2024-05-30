@@ -3,7 +3,7 @@ import {
     FieldDeclaration,
     Source,
     Parser
-} from "assemblyscript/dist/assemblyscript";
+} from "assemblyscript/dist/assemblyscript.js";
 import { toString, isStdlib } from "visitor-as/dist/utils.js";
 import { BaseVisitor, SimpleParser } from "visitor-as/dist/index.js";
 import { Transform } from "assemblyscript/dist/transform.js";
