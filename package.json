@@ -1,6 +1,6 @@
 {
   "name": "as-object",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Object API implementation for AssemblyScript",
   "types": "assembly/index.ts",
   "author": "Jairus Tanaka",
@@ -14,7 +14,8 @@
   "devDependencies": {
     "@assemblyscript/wasi-shim": "^0.1.0",
     "assemblyscript": "^0.27.1",
-    "visitor-as": "^0.7.0-2"
+    "typescript": "^5.4.5",
+    "visitor-as": "^0.11.4"
   },
   "dependencies": {
     "as-variant": "^0.4.1"

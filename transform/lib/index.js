@@ -40,14 +40,14 @@ class ObjectTransform extends BaseVisitor {
             // @ts-ignore
             this.currentClass.types.push(member.type.name.identifier.text);
         }
-        //console.log(`public __Object_Keys: string[] = [${this.currentClass.keys.map(v => `"${v}"`).join(",")}];`)
-        const keysProp = SimpleParser.parseClassMember(`public __Object_Keys: string[] = [${this.currentClass.keys.map(v => `"${v}"`).join(",")}];`, node);
+        //console.log(`public __OBJECT_KEYS: string[] = [${this.currentClass.keys.map(v => `"${v}"`).join(",")}];`)
+        const keysProp = SimpleParser.parseClassMember(`public __OBJECT_KEYS: string[] = [${this.currentClass.keys.map(v => `"${v}"`).join(",")}];`, node);
         node.members.push(keysProp);
-        //console.log(`public __Object_Types: string[] = [${this.currentClass.types.map(v => `"${v}"`).join(",")}];`)
-        const typesProp = SimpleParser.parseClassMember(`public __Object_Types: string[] = [${this.currentClass.types.map(v => `"${v}"`).join(",")}];`, node);
+        //console.log(`public __OBJECT_TYPES: string[] = [${this.currentClass.types.map(v => `"${v}"`).join(",")}];`)
+        const typesProp = SimpleParser.parseClassMember(`public __OBJECT_TYPES: string[] = [${this.currentClass.types.map(v => `"${v}"`).join(",")}];`, node);
         node.members.push(typesProp);
-        //console.log(`@inline __Object_Values(): Variant[] { return [${this.currentClass.keys.map(v => `Variant.from(this.${v})`).join(",")}]; }`)
-        const valuesMethod = SimpleParser.parseClassMember(`@inline __Object_Values(): Variant[] { return [${this.currentClass.keys.map(v => `Variant.from(this.${v})`).join(",")}]; }`, node);
+        //console.log(`@inline __OBJECT_VALUES(): Variant[] { return [${this.currentClass.keys.map(v => `Variant.from(this.${v})`).join(",")}]; }`)
+        const valuesMethod = SimpleParser.parseClassMember(`@inline __OBJECT_VALUES(): Variant[] { return [${this.currentClass.keys.map(v => `Variant.from(this.${v})`).join(",")}]; }`, node);
         node.members.push(valuesMethod);
     }
     visitSource(node) {
